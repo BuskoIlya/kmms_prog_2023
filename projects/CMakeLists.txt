@@ -16,6 +16,7 @@ add_subdirectory(obuchaika)
 add_subdirectory(unit_test_example)
 add_subdirectory(scl)
 add_subdirectory(inheritance_examples)
+add_subdirectory(recursion)
 
 #add_subdirectory(text)
 #add_subdirectory(obuchaika_v2)
