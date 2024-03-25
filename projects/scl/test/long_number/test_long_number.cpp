@@ -157,7 +157,9 @@ class FArithmetic : public testing::Test {
 		
 			p_0{"0"}, p_1{"1"}, p_1_copy{"1"}, p_2{"2"}, p_3{"3"},
 			p_4{"4"}, p_6{"6"}, p_12{"12"}, p_99{"99"}, p_99_copy{"99"}, 
-			p_113{"113"}, p_198{"198"}, p_1188{"1188"}, p_19602{"19602"};
+			p_113{"113"}, p_198{"198"}, p_1188{"1188"}, p_19602{"19602"},
+			
+			n_100{"-100"}, n_6{"-6"}, p_100{"100"}, p_{"6"};
 };
 
 TEST_F(FArithmetic, summ) {
@@ -194,6 +196,13 @@ TEST_F(FArithmetic, remainder) {
 	EXPECT_EQ(p_1, n_15 % p_4) << "-15 % 4 = 1";
 	EXPECT_EQ(p_2, p_113 % n_3) << "113 % -3 = 2";
 	EXPECT_EQ(p_6, n_15 % n_7) << "-15 % -7 = 6";
+}
+
+TEST_F(FArithmetic, remainder_full_sign_example) {
+	EXPECT_EQ(p_4, p_100 % p_6) << "100 % 6 = 4";
+	EXPECT_EQ(p_4, p_100 % n_6) << "100 % -6 = 4";
+	EXPECT_EQ(p_2, n_100 % p_6) << "-100 % 6 = 2";
+	EXPECT_EQ(p_2, n_100 % n_6) << "-100 % -6 = 2";
 }
 
 int main(int argc, char **argv) {
