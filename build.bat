@@ -42,7 +42,9 @@ set arr[7].folder=scl\test\long_number
 set arr[8].folder=recursion
 
 for /L %%i in (0,1,8) do ( 
-	copy ..\%SOURCE_FOLDER%\!arr[%%i].folder!\!arr[%%i].file! .\!arr[%%i].folder!
+	if not exist .\!arr[%%i].folder!\!arr[%%i].file! (
+		copy ..\%SOURCE_FOLDER%\!arr[%%i].folder!\!arr[%%i].file! .\!arr[%%i].folder!
+	)
 )
 
-copy ..\run_tests.bat .
+if not exist .\run_tests.bat copy ..\run_tests.bat .
