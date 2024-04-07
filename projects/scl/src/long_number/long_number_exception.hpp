@@ -8,6 +8,6 @@ namespace IBusko {
 			std::string exception;
 		public:
 			LongNumberException(const std::string exception) : exception(exception) {}
-			std::string get_exception() const { return exception; }
+			std::string get_message() const { return exception; }
 	};
 }
