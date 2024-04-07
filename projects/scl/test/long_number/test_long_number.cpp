@@ -1,8 +1,10 @@
 #include <gtest/gtest.h>
 
 #include "long_number.hpp"
+#include "long_number_exception.hpp"
 
 using IBusko::LongNumber;
+using IBusko::LongNumberException;
 
 TEST(default_constructor, rank) {
 	LongNumber x;
@@ -185,6 +187,7 @@ TEST_F(FArithmetic, multiply) {
 }
 
 TEST_F(FArithmetic, division) {
+	EXPECT_THROW(p_2 / p_0, LongNumberException);
 	EXPECT_EQ(p_2, p_2 / p_1) << "2 / 1 = 2";
 	EXPECT_EQ(p_198, p_19602 / p_99) << "19602 / 99 = 198";
 	EXPECT_EQ(p_99, n_19602 / p_198 / n_1) << "-19602 / 198 / -1  = 99";

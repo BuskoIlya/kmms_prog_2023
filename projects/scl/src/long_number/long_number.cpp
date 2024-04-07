@@ -1,5 +1,7 @@
 #include "long_number.hpp"
 
+#include "long_number_exception.hpp"
+
 using IBusko::LongNumber;
 
 LongNumber::LongNumber() : length(1), sign(POSITIVE) {
@@ -255,8 +257,7 @@ LongNumber LongNumber::operator / (const LongNumber& x) const {
 	LongNumber result;
    
 	if (x.length == 1 && x.numbers[0] == 0) {
-		// TODO Исключение деления на ноль
-		return result;
+		throw LongNumberException("Ошибка: деление на ноль!");
 	}
 	
 	LongNumber divident = *this;
