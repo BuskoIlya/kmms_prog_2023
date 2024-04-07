@@ -98,39 +98,207 @@ LongNumber& LongNumber::operator = (LongNumber&& x) {
 }
 
 bool LongNumber::operator == (const LongNumber& x) const {
-	return false;
+	if (this == &x) return true;
+	
+	if (length != x.length) return false;
+	if (sign != x.sign) return false;
+	
+	for (int i = 0; i < length; i++) {
+		if (numbers[i] != x.numbers[i]) return false;
+	}
+	
+	return true;
 }
 
 bool LongNumber::operator != (const LongNumber& x) const {
-	return false;
+	return !(*this == x);
 }
 
 bool LongNumber::operator > (const LongNumber& x) const {
-	return false;
+	if (this == &x) return false;
+	
+	if (sign != x.sign) {
+		if (sign == POSITIVE) return true;
+		else return false;
+	} else {
+		bool is_bigger = false;
+		
+		if (length > x.length) {
+			is_bigger = true;
+		} else if (length == x.length) {
+			int i = 0;
+			while (
+				i < length - 1
+				&& numbers[length - i - 1] == x.numbers[length - i - 1]
+			) {
+				i++;
+			}
+			if (numbers[length - i - 1] > x.numbers[length - i - 1]) {
+				is_bigger = true;
+			}
+		}
+		
+		if (sign == POSITIVE) return is_bigger;
+		else return !is_bigger;
+	}
 }
 
 bool LongNumber::operator < (const LongNumber& x) const {
-	return false;
+	return (*this != x) && !(*this > x);
 }
 
 LongNumber LongNumber::operator + (const LongNumber& x) const {
-	return LongNumber();
+	LongNumber result;
+	LongNumber min, max;
+	if (sign * x.sign > 0) {
+		if (length >= x.length) {
+			result = LongNumber(length + 1, sign);
+			min = x; 
+			max = *this; 
+		} else {
+			result = LongNumber(x.length + 1, sign);
+			min = *this; 
+			max = x;
+		}
+		
+		for (int i = 0; i < min.length; i++) {
+			result.numbers[i] = min.numbers[i] + max.numbers[i];
+		}
+			
+		for (int i = min.length; i < max.length; i++) {
+			result.numbers[i] = max.numbers[i];				
+		}
+
+		for (int i = 0; i < result.length - 1; i++) {
+			if (result.numbers[i] > 9) {
+				result.numbers[i + 1]++;
+				result.numbers[i] = result.numbers[i] % 10;
+			}
+		}
+		
+		if (result.numbers[result.length - 1] == 0 ) {
+			result.length--;
+		}
+	} else {
+		LongNumber absx = x, abs_this = *this;
+		absx.sign = 1;
+		abs_this.sign = 1;
+		if (abs_this > absx) {
+			result = LongNumber(length + 1, sign);
+			min = x; 
+			max = *this;
+		} else {
+			result = LongNumber(x.length + 1, x.sign);
+			min = *this; 
+			max = x;
+		}
+
+		for (int i = 0; i < max.length; i++) {
+			result.numbers[i] = max.numbers[i];
+		}
+		
+		for (int i = 0; i < min.length; i++) {
+			result.numbers[i] = result.numbers[i] - min.numbers[i];
+		}
+		
+		for (int i = 0; i < result.length - 1; i++) {
+			if (result.numbers[i] < 0) {
+				result.numbers[i + 1]--;
+				result.numbers[i] +=10;
+			}
+		}
+	   
+		while (
+			result.length > 1
+			&& result.numbers[result.length - 1] == 0
+		) {
+			result.length--;
+		}
+	}
+	
+	if (result.length == 1 && result.numbers[0] == 0) {
+		result.sign = POSITIVE;
+	}
+	
+	return result;
 }
 
 LongNumber LongNumber::operator - (const LongNumber& x) const {
-	return LongNumber();
+	LongNumber result = x;
+	result.sign = -result.sign;
+	result = *this + result;
+	return result;
 }
 
 LongNumber LongNumber::operator * (const LongNumber& x) const {
-	return LongNumber();
+	LongNumber result(length + x.length, sign * x.sign);
+	
+	for (int i = 0; i < x.length; i++) {
+		for (int j = 0; j < length; j++) {
+			result.numbers[j + i] += x.numbers[i] * numbers[j];
+			if (result.numbers[i + j] > 9){
+				int q = result.numbers[i + j] / 10;
+				result.numbers[i + j + 1] += q;
+				result.numbers[i + j] -= q * 10;
+			}
+		}
+	}
+	
+	while (result.length > 1 && result.numbers[result.length - 1] == 0) {
+		result.length--;
+	}
+	
+	return result;
 }
 
 LongNumber LongNumber::operator / (const LongNumber& x) const {
-	return LongNumber();
+	LongNumber result;
+   
+	if (x.length == 1 && x.numbers[0] == 0) {
+		// TODO Исключение деления на ноль
+		return result;
+	}
+	
+	LongNumber divident = *this;
+	divident.sign = 1;
+	if (divident < x) {
+		return result;
+	} else {
+		result = LongNumber(length - x.length + 1, sign * x.sign);
+
+		for(int i = 0; i < result.length; i++) {
+			LongNumber divider = LongNumber(length - i, 1);
+			
+			for (int j = 0; j < x.length; j++) {
+				divider.numbers[length - x.length - i + j] = x.numbers[j];
+			}
+			
+			int k = 0;
+			while (divident > divider || divident == divider) {
+				k++;
+				divident = divident - divider;
+			}
+			result.numbers[result.length - i - 1] = k;
+		}
+	}
+	
+	while (
+		result.length > 1
+		&& result.numbers[result.length - 1] == 0
+	) {
+		result.length--;
+	}
+	
+	return result;
 }
 
 LongNumber LongNumber::operator % (const LongNumber& x) const {
-	return LongNumber();
+	if (is_negative()) {
+		LongNumber np_1 = x.is_negative() ? "1" : "-1";
+		return *this - (*this / x + np_1) * x;
+	} else {
+		return *this - (*this / x) * x;
+	}
 }
 
 int LongNumber::get_digits_number() const {
