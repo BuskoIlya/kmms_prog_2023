@@ -4,11 +4,11 @@
 
 namespace IBusko {
 	class LongNumber {
-		static const char END = '\0';
-		static const char ZERO = '0';
-		static const char MINUS = '-';
-		static const int NEGATIVE = -1;
-		static const int POSITIVE = 1;
+		static const char END;
+		static const char ZERO;
+		static const char MINUS;
+		static const int NEGATIVE;
+		static const int POSITIVE;
 		
 		int* numbers;
 		int length;

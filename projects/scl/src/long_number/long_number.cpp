@@ -2,6 +2,12 @@
 
 using IBusko::LongNumber;
 
+const char LongNumber::END = '\0';
+const char LongNumber::ZERO = '0';
+const char LongNumber::MINUS = '-';
+const int LongNumber::NEGATIVE = -1;
+const int LongNumber::POSITIVE = 1;
+		
 LongNumber::LongNumber() : length(1), sign(POSITIVE) {
 	numbers = new int[length];
 	numbers[0] = 0;
@@ -255,8 +261,7 @@ LongNumber LongNumber::operator / (const LongNumber& x) const {
 	LongNumber result;
    
 	if (x.length == 1 && x.numbers[0] == 0) {
-		// TODO Исключение деления на ноль
-		return result;
+		// TODO ZeroDivisionException
 	}
 	
 	LongNumber divident = *this;

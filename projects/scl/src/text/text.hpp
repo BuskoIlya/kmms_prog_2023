@@ -19,6 +19,7 @@ namespace IBusko {
 			Text& operator = (Text&& x);
 			
 			int get_length() const { return length; }
+			const char* get_str() const { return value; }
 			
 			friend std::ostream& operator << (std::ostream& os, const Text& x);
 	};
