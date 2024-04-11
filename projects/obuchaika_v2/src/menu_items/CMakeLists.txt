@@ -1,12 +1,14 @@
 set(HEADERS 
 	exit_item.hpp
 	goback_item.hpp
+	long_division_item.hpp
 	menu_item.hpp
 )
 
 set(SOURCES 
 	exit_item.cpp
 	goback_item.cpp
+	long_division_item.cpp
 	menu_item.cpp
 )
 

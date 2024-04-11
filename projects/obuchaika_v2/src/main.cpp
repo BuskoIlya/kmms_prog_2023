@@ -3,8 +3,8 @@
 int main() {
 	const IBusko::MenuItem* current = &IBusko::MAIN;
 	do {
-        current = current->execute();
-    } while (true);
-
+		current = current->execute();
+	} while (true);
+		
     return 0;
 }

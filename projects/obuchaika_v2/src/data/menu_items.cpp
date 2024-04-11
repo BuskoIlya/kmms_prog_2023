@@ -1,11 +1,43 @@
 #include "menu_items.hpp"
 
 namespace IBusko {
+	const GoBackItem LONG_GO_BACK("0 - Выйти в предыдущее меню", &STUDY_LONG);
+	const LongDivisionItem LONG_DIVISION("1 - Заниматься делением", &STUDY_LONG);
+	namespace {
+		const MenuItem* const long_children[] = {
+			&LONG_GO_BACK,
+			&LONG_DIVISION
+		};
+		const int long_size = sizeof(long_children) / sizeof(long_children[0]);
+	}
+	
+	const GoBackItem COMPLEX_GO_BACK("0 - Выйти в предыдущее меню", &STUDY_COMPLEX);
+	namespace {
+		const MenuItem* const complex_children[] = {
+			&COMPLEX_GO_BACK
+		};
+		const int complex_size = sizeof(complex_children) / sizeof(complex_children[0]);
+	}
+	
 	const GoBackItem STUDY_GO_BACK("0 - Выйти в главное меню", &STUDY);
+	const MenuItem STUDY_LONG(
+		"1 - Заниматься длинной арифметикой", 
+		&STUDY,
+		long_children,
+		long_size
+	);
+	const MenuItem STUDY_COMPLEX(
+		"2 - Заниматься арифметикой комплексных чисел", 
+		&STUDY,
+		complex_children,
+		complex_size
+	);
 	
 	namespace {
 		const MenuItem* const study_children[] = {
-			&STUDY_GO_BACK
+			&STUDY_GO_BACK,
+			&STUDY_LONG,
+			&STUDY_COMPLEX
 		};
 		const int study_size = sizeof(study_children) / sizeof(study_children[0]);
 	}
