@@ -1,5 +1,7 @@
 #include "utility.hpp"
 
+#include <cstddef>
+
 #include "ctext.hpp"
 
 namespace IBusko {

@@ -18,4 +18,14 @@ namespace IBusko {
     extern const GoBackItem LONG_GO_BACK;
 	
     extern const GoBackItem COMPLEX_GO_BACK;
+
 }
+
+/*
+ * TODO :
+ * школьная арифметика ->
+ * складывать (int only) , вычитать , умножать , делить ,
+ * и реализовать MenuItem только для сложения
+ * Больше 2 коммитов!
+ * дедлайн до 20.04
+ */
