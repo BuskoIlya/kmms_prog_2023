@@ -12,7 +12,9 @@ namespace IBusko {
 	
 	extern const MenuItem STUDY_LONG;
 	extern const MenuItem STUDY_COMPLEX;
+    extern const MenuItem STUDY_SCHOOL;
     extern const GoBackItem STUDY_GO_BACK;
+
 	
 	extern const LongDivisionItem LONG_DIVISION;
     extern const GoBackItem LONG_GO_BACK;

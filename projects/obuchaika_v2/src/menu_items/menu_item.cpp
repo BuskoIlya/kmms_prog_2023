@@ -34,7 +34,8 @@ namespace IBusko {
 		std::cout << std::endl;
         if(children_count <= user_input){
             throw "Wrong Choice!";
+        }else{
+            return children[user_input];
         }
-		return children[user_input];
 	}
 }
