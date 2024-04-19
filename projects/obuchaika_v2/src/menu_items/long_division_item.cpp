@@ -1,4 +1,4 @@
-#include "long_division_item.hpp"
+﻿#include "long_division_item.hpp"
 
 namespace IBusko {
 	LongDivisionItem::LongDivisionItem(

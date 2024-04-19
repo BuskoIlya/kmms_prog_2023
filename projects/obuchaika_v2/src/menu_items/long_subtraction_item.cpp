@@ -1,4 +1,4 @@
-#include "long_subtraction_item.hpp"
+﻿#include "long_subtraction_item.hpp"
 
 namespace IBusko {
 	LongSubtractionItem::LongSubtractionItem(

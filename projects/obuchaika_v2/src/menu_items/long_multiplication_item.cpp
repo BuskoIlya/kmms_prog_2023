@@ -1,4 +1,4 @@
-#include "long_multiplication_item.hpp"
+﻿#include "long_multiplication_item.hpp"
 
 namespace IBusko {
 	LongMultiplicationItem::LongMultiplicationItem(
