@@ -8,6 +8,8 @@ set(HEADERS
 	long_subtraction_item.hpp
 	
 	menu_item.hpp
+  
+  school_division_item.hpp
 )
 
 set(SOURCES 
@@ -20,14 +22,16 @@ set(SOURCES
 	long_subtraction_item.cpp
 	
 	menu_item.cpp
+  
+  school_division_item.cpp
 )
 
-target_sources(${PROJECT_NAME} 
-	PRIVATE
-		${HEADERS}
-		${SOURCES}
+target_sources(${PROJECT_NAME}
+        PRIVATE
+        ${HEADERS}
+        ${SOURCES}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
-	"${PROJECT_SOURCE_DIR}/src/menu_items"
+        "${PROJECT_SOURCE_DIR}/src/menu_items"
 )
