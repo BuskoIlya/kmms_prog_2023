@@ -2,10 +2,16 @@
 
 namespace IBusko {
 	const GoBackItem LONG_GO_BACK("0 - Выйти в предыдущее меню", &STUDY_LONG);
-	const LongDivisionItem LONG_DIVISION("1 - Заниматься делением", &STUDY_LONG);
+	const LongAdditionItem LONG_ADDITION("1 - Заниматься сложение", &STUDY_LONG);
+	const LongSubtractionItem LONG_SUBTRACTION("2 - Заниматься вычитанием", &STUDY_LONG);
+	const LongSubtractionItem LONG_MULTIPLICATION("3 - Заниматься умножением", &STUDY_LONG);
+	const LongDivisionItem LONG_DIVISION("4 - Заниматься делением", &STUDY_LONG);
 	namespace {
 		const MenuItem* const long_children[] = {
 			&LONG_GO_BACK,
+			&LONG_ADDITION,
+			&LONG_SUBTRACTION,
+			&LONG_MULTIPLICATION,
 			&LONG_DIVISION
 		};
 		const int long_size = sizeof(long_children) / sizeof(long_children[0]);

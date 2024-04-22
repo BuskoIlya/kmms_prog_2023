@@ -1,12 +1,12 @@
-﻿#include "long_division_item.hpp"
+﻿#include "long_subtraction_item.hpp"
 
 namespace IBusko {
-	LongDivisionItem::LongDivisionItem(
+	LongSubtractionItem::LongSubtractionItem(
 		const char* const title, 
 		const MenuItem* parent
 	) : MenuItem(title, parent) {}
 		
-	const MenuItem* LongDivisionItem::execute() const {
+	const MenuItem* LongSubtractionItem::execute() const {
 		// TODO
 		return parent->get_parent();
 	}
