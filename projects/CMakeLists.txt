@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2...3.27.5)
-
+set (CMAKE_CXX_STANDARD 11)
 project(kmms_prog_2023)
 
 enable_testing()

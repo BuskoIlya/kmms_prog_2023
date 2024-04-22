@@ -9,3 +9,6 @@ lib/
 *.ii
 *.s
 *.o
+
+.DS_Store
+.idea/

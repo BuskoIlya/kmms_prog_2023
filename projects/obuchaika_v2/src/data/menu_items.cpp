@@ -18,7 +18,17 @@ namespace IBusko {
 		};
 		const int complex_size = sizeof(complex_children) / sizeof(complex_children[0]);
 	}
-	
+
+    const GoBackItem SCHOOL_GO_BACK("0 - Выйти в предыдущее меню", &STUDY_SCHOOL);
+    const SchoolDevisionItem SCHOOL_DIVISION("1 - Заниматься делением целых чисел", &STUDY_SCHOOL);
+    namespace {
+        const MenuItem* const school_children[] = {
+                &SCHOOL_GO_BACK,
+                &SCHOOL_DIVISION,
+        };
+        const int school_size = sizeof(school_children) / sizeof(school_children[0]);
+    }
+
 	const GoBackItem STUDY_GO_BACK("0 - Выйти в главное меню", &STUDY);
 	const MenuItem STUDY_LONG(
 		"1 - Заниматься длинной арифметикой", 
@@ -32,12 +42,22 @@ namespace IBusko {
 		complex_children,
 		complex_size
 	);
+    const MenuItem STUDY_SCHOOL(
+            "3 - Заниматься школьной арифметикой",
+            &STUDY,
+            school_children,
+            school_size
+    );
+
+
+
 	
 	namespace {
 		const MenuItem* const study_children[] = {
 			&STUDY_GO_BACK,
 			&STUDY_LONG,
-			&STUDY_COMPLEX
+			&STUDY_COMPLEX,
+            &STUDY_SCHOOL,
 		};
 		const int study_size = sizeof(study_children) / sizeof(study_children[0]);
 	}
