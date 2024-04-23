@@ -5,8 +5,8 @@ namespace IBusko {
 	class Vector {
 		private:
 			T* arr;
-			int capacity = 10;
-			int size = 0;
+			std::size_t capacity = 10;
+			std::size_t size = 0;
 		public:
 			Vector() noexcept;
 			Vector(const Vector&) = delete;
@@ -18,6 +18,6 @@ namespace IBusko {
 			bool insert(const int position, const T& value);
 			void print() const noexcept;
 			bool remove_first(const T& value) noexcept;
-			int size() const noexcept;
+			std::size_t size() const noexcept;
 	};
 }
