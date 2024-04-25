@@ -8,6 +8,7 @@
 #include "long_multiplication_item.hpp"
 #include "long_division_item.hpp"
 #include "school_division_item.hpp"
+#include "school_addition_item.hpp"
 
 namespace IBusko {
     extern const MenuItem MAIN;
@@ -26,6 +27,7 @@ namespace IBusko {
 	  extern const LongDivisionItem LONG_DIVISION;
     extern const GoBackItem LONG_GO_BACK;
 
+    extern const SchoolAdditionItem SCHOOL_ADDITION;
     extern const SchoolDevisionItem SCHOOL_DIVISION;
 
     extern const GoBackItem COMPLEX_GO_BACK;

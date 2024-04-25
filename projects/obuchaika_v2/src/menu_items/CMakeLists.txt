@@ -10,6 +10,7 @@ set(HEADERS
 	menu_item.hpp
   
   school_division_item.hpp
+	school_addition_item.hpp
 )
 
 set(SOURCES 
@@ -24,6 +25,7 @@ set(SOURCES
 	menu_item.cpp
   
   school_division_item.cpp
+	school_addition_item.cpp
 )
 
 target_sources(${PROJECT_NAME}
