@@ -27,10 +27,12 @@ namespace IBusko {
 
     const GoBackItem SCHOOL_GO_BACK("0 - Выйти в предыдущее меню", &STUDY_SCHOOL);
     const SchoolDevisionItem SCHOOL_DIVISION("1 - Заниматься делением целых чисел", &STUDY_SCHOOL);
+    const SchoolAdditionItem SCHOOL_ADDITION("2 - Заниматься сложением целых чисел", &STUDY_SCHOOL);
     namespace {
         const MenuItem* const school_children[] = {
                 &SCHOOL_GO_BACK,
                 &SCHOOL_DIVISION,
+				&SCHOOL_ADDITION,
         };
         const int school_size = sizeof(school_children) / sizeof(school_children[0]);
     }
