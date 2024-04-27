@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <iostream>
 
 namespace IBusko {
 	template <typename T> 
@@ -20,9 +21,7 @@ namespace IBusko {
 			Node* begin = nullptr;
 			Node* end = nullptr;
 		public:
-			DoublyLinkedList() noexcept {
-
-            };
+			DoublyLinkedList() noexcept {};
 			DoublyLinkedList(const DoublyLinkedList&) = delete;
 			DoublyLinkedList& operator = (const DoublyLinkedList&) = delete;
 			~DoublyLinkedList() noexcept;
