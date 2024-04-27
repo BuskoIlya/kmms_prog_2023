@@ -16,11 +16,13 @@ namespace IBusko {
 						
 					Node(const Node&) = delete;
 					Node& operator = (const Node&) = delete;
-			};
+            };
 			Node* begin = nullptr;
 			Node* end = nullptr;
 		public:
-			DoublyLinkedList() noexcept {};
+			DoublyLinkedList() noexcept {
+
+            };
 			DoublyLinkedList(const DoublyLinkedList&) = delete;
 			DoublyLinkedList& operator = (const DoublyLinkedList&) = delete;
 			~DoublyLinkedList() noexcept;
