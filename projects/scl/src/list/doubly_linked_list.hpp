@@ -14,6 +14,10 @@ namespace IBusko {
 					Node* next = nullptr;
 					
 					Node(const T& value) : value(value) {}
+                    ~Node(){
+                        prev = nullptr;
+                        next = nullptr;
+                    }
 						
 					Node(const Node&) = delete;
 					Node& operator = (const Node&) = delete;

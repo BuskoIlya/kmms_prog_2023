@@ -4,7 +4,16 @@ using IBusko::DoublyLinkedList;
 
 template <typename T>
 DoublyLinkedList<T>::~DoublyLinkedList() noexcept {
+    if(begin != nullptr && begin->next != nullptr) {
+        Node *ptr = begin->next;
 
+        for (; ptr != nullptr; ptr = ptr->next) {
+            delete ptr->prev;
+            ptr->prev = nullptr;
+        }
+        delete ptr;
+        ptr = nullptr;
+    }
 };
 template <typename T>
 void DoublyLinkedList<T>::push_back(const T &value) noexcept {
@@ -37,22 +46,26 @@ bool DoublyLinkedList<T>::remove_first(const T &value) noexcept {
     for(; i != nullptr; i=i->next){
         if(i->value == value){
             if(begin == end){
+                delete i;
+                i = nullptr;
                 begin = nullptr;
                 end = nullptr;
             }
             else if(i == begin){
                 i->next->prev = nullptr;
                 begin = i->next;
+                delete i;
             }else if(i == end){
                 i->prev->next = nullptr;
                 end = i->prev;
+                delete i;
             }else{
                 if(i->prev != nullptr)
                     i->prev->next = i->next;
                 if(i->next != nullptr)
                     i->next->prev = i->prev;
+                delete i;
             }
-            delete i;
 
             return true;
         }

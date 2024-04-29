@@ -58,23 +58,7 @@ TEST(has_item, test){
 
 
 int main(int argc, char **argv){
-    DoublyLinkedList<int> a;
-
-    a.push_back(1);
-    a.push_back(2);
-    a.push_back(-1);
-    a.push_back(4);
-
-    a.remove_first(1);
-    a.remove_first(-1);
-    a.remove_first(2);
-    a.remove_first(4);
-
-    std::cout << a.size() << "\n";
-    a.print();
-
-//    return 0;
-        ::testing::InitGoogleTest(&argc, argv);
-        return RUN_ALL_TESTS();
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
 
