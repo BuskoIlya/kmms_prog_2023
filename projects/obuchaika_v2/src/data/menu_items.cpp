@@ -2,7 +2,7 @@
 
 namespace IBusko {
 	const GoBackItem LONG_GO_BACK("0 - Выйти в предыдущее меню", &STUDY_LONG);
-	const LongAdditionItem LONG_ADDITION("1 - Заниматься сложение", &STUDY_LONG);
+	const LongAdditionItem LONG_ADDITION("1 - Заниматься сложением", &STUDY_LONG);
 	const LongSubtractionItem LONG_SUBTRACTION("2 - Заниматься вычитанием", &STUDY_LONG);
 	const LongSubtractionItem LONG_MULTIPLICATION("3 - Заниматься умножением", &STUDY_LONG);
 	const LongDivisionItem LONG_DIVISION("4 - Заниматься делением", &STUDY_LONG);
