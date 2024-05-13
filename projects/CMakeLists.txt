@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2...3.27.5)
-set (CMAKE_CXX_STANDARD 11)
+
 project(kmms_prog_2023)
 
 enable_testing()
@@ -18,5 +18,6 @@ add_subdirectory(unit_test_example)
 add_subdirectory(inheritance_examples)
 add_subdirectory(recursion)
 add_subdirectory(obuchaika_v2)
+add_subdirectory(may_lessons)
 
 set(CMAKE_SUPPRESS_REGENERATION true)
