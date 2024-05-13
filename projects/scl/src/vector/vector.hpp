@@ -8,7 +8,7 @@ namespace IBusko {
 		private:
 			static const std::size_t START_CAPACITY;
 
-			T* arr;
+			T* arr = nullptr;
 			std::size_t capacity = START_CAPACITY;
 			std::size_t size = 0;
 

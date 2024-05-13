@@ -10,7 +10,7 @@ const std::size_t Vector<T>::START_CAPACITY = 10;
 
 template<typename T>
 Vector<T>::Vector() {
-	arr = new T[capacity];
+	arr = new T[START_CAPACITY];
 }
 
 template<typename T>
